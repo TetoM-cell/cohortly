@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSans = DM_Sans({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Cohortly",
-  description: "Cohortly – AI Application Reviewer for Accelerators & Grants. Cohortly is the Notion-meets-Apple dashboard that lets accelerators, universities, and grant programs collect applications, auto-score them with AI, and run collaborative reviews 5× faster than spreadsheets—all in a calm, minimalist interface.",
+  title: "Cohortly | The OS for Modern Accelerators",
+  description: "Accelerate your application management with AI-driven scoring, unified inboxes, and seamless program builders.",
 };
 
 export default function RootLayout({
@@ -24,12 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${dmSans.variable} font-sans h-full antialiased light`}>
+      <body className="min-h-full flex flex-col bg-white text-gray-900 selection:bg-blue-100 selection:text-blue-900">
         {children}
-        <Toaster />
       </body>
     </html>
   );
