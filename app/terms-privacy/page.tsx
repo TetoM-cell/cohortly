@@ -8,7 +8,7 @@ import { Particles } from "@/components/Particles";
 
 const EFFECTIVE_DATE = "April 8, 2026";
 const COMPANY = "Cohortly Inc.";
-const CONTACT_EMAIL = "legal@cohortly.app";
+const CONTACT_EMAIL = "cohortlyapp@gmail.com";
 const WEBSITE = "cohortly.app";
 
 type Tab = "terms" | "privacy";

@@ -32,7 +32,6 @@ const dropdownResources: { label: string; href: string; highlighted?: boolean }[
     { label: "Releases", href: "/releases" },
     { label: "Support", href: "/support" },
     { label: "Terms & Privacy", href: "/terms-privacy" },
-    { label: "Request a feature", href: "/support", highlighted: true },
 ];
 
 const dropdownCopy: Record<
@@ -54,20 +53,18 @@ const dropdownCopy: Record<
             </>
         ),
         description:
-            "Release notes, help resources, policies, and a direct line to shape what we build next.",
+            "Release notes, help resources, and support policies for the platform.",
     },
 };
 
-function closeDropdowns(setHoveredDropdown: (v: DropdownKey | null) => void, setIsExpanded: (v: boolean) => void) {
+function closeDropdowns(setHoveredDropdown: (v: DropdownKey | null) => void) {
     setHoveredDropdown(null);
-    setIsExpanded(false);
 }
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [hoveredDropdown, setHoveredDropdown] = useState<DropdownKey | null>(null);
-    const [isExpanded, setIsExpanded] = useState(false);
     const [isDesktopNav, setIsDesktopNav] = useState(false);
 
     useEffect(() => {
@@ -108,13 +105,10 @@ export function Navbar() {
     useEffect(() => {
         if (!isDesktopNav) {
             setHoveredDropdown(null);
-            setIsExpanded(false);
         }
     }, [isDesktopNav]);
 
-    useEffect(() => {
-        setIsExpanded(false);
-    }, [hoveredDropdown]);
+
 
     type DropdownItem = { label: string; href: string; highlighted?: boolean };
 
@@ -141,12 +135,9 @@ export function Navbar() {
                 onMouseLeave={() => {
                     if (isDesktopNav) {
                         setHoveredDropdown(null);
-                        setIsExpanded(false);
                     }
                 }}
-                onAnimationComplete={() => {
-                    if (isDesktopNav && hoveredDropdown) setIsExpanded(true);
-                }}
+
                 className={cn(
                     "max-w-6xl mx-auto rounded-[32px] transition-all duration-300 overflow-hidden bg-white border border-transparent shadow-none",
                     (scrolled || hoveredDropdown) && "glass border-gray-100/50 shadow-[0_8px_40px_rgb(0,0,0,0.06)]"
@@ -226,13 +217,13 @@ export function Navbar() {
                         onMouseEnter={() => isDesktopNav && setHoveredDropdown(null)}
                     >
                         <Link
-                            href="/login"
+                            href="https://app-cohortly.vercel.app/login"
                             className="text-[13px] font-semibold text-gray-600 hover:text-gray-900 px-3 py-1.5 transition-colors"
                         >
                             Log in
                         </Link>
                         <Link
-                            href="/signup"
+                            href="https://app-cohortly.vercel.app/signup"
                             className="bg-black text-white text-[13px] font-bold px-4 py-2 rounded-full hover:bg-gray-900 transition-all shadow-lg shadow-blue-500/10 flex items-center gap-1.5 group active:scale-95"
                         >
                             Get Started
@@ -250,78 +241,68 @@ export function Navbar() {
                 </div>
 
                 {/* Dropdown Content Area */}
-                <AnimatePresence onExitComplete={() => setIsExpanded(false)}>
+                <AnimatePresence mode="wait">
                     {isDesktopNav && hoveredDropdown && (
                         <motion.div
                             key={hoveredDropdown}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onAnimationComplete={() => setIsExpanded(true)}
-                            className="px-6 pb-12 pt-8 border-t border-gray-50 bg-gray-50/30"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="px-6 pb-12 pt-8 border-t border-gray-50 bg-gray-50/30 overflow-hidden"
                         >
                             <div className="max-w-4xl grid grid-cols-2 gap-12">
-                                <AnimatePresence>
-                                    {isExpanded && hoveredDropdown && (
-                                        <motion.div
-                                            key={`left-${hoveredDropdown}`}
-                                            initial={{ opacity: 0, y: 12 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.25 }}
-                                        >
-                                            <h4 className="text-2xl font-normal text-gray-900 mb-4 max-w-sm leading-tight">
-                                                {dropdownCopy[hoveredDropdown].heading}
-                                            </h4>
-                                            <p className="text-sm text-gray-500 mb-8 max-w-xs leading-relaxed">
-                                                {dropdownCopy[hoveredDropdown].description}
-                                            </p>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 12 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3, delay: 0.1 }}
+                                >
+                                    <h4 className="text-2xl font-normal text-gray-900 mb-4 max-w-sm leading-tight">
+                                        {dropdownCopy[hoveredDropdown].heading}
+                                    </h4>
+                                    <p className="text-sm text-gray-500 mb-8 max-w-xs leading-relaxed">
+                                        {dropdownCopy[hoveredDropdown].description}
+                                    </p>
+                                </motion.div>
 
                                 <div className="space-y-0">
-                                    <AnimatePresence>
-                                        {isExpanded &&
-                                            dropdownItems.map((item, idx) => (
-                                                <motion.div
-                                                    key={`${hoveredDropdown}-${item.label}`}
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    exit={{ opacity: 0 }}
-                                                    transition={{ duration: 0.2, delay: idx * 0.07 }}
-                                                    className="rounded-xl"
+                                    {dropdownItems.map((item, idx) => (
+                                        <motion.div
+                                            key={`${hoveredDropdown}-${item.label}`}
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.2, delay: 0.1 + idx * 0.05 }}
+                                            className="rounded-xl"
+                                        >
+                                            <Link
+                                                href={item.href}
+                                                className={cn(
+                                                    "group flex items-center gap-1.5 px-2 py-1.5 rounded-xl hover:bg-white border border-transparent hover:border-gray-100 transition-all",
+                                                    item.highlighted && "hover:bg-blue-50/50"
+                                                )}
+                                                onClick={() => closeDropdowns(setHoveredDropdown)}
+                                            >
+                                                <p
+                                                    className={cn(
+                                                        "text-base font-normal transition-colors",
+                                                        item.highlighted
+                                                            ? "text-blue-600 group-hover:text-blue-700"
+                                                            : "text-gray-700 group-hover:text-gray-900"
+                                                    )}
                                                 >
-                                                    <Link
-                                                        href={item.href}
-                                                        className={cn(
-                                                            "group flex items-center gap-1.5 px-2 py-1.5 rounded-xl hover:bg-white border border-transparent hover:border-gray-100 transition-all",
-                                                            item.highlighted && "hover:bg-blue-50/50"
-                                                        )}
-                                                        onClick={() => closeDropdowns(setHoveredDropdown, setIsExpanded)}
-                                                    >
-                                                        <p
-                                                            className={cn(
-                                                                "text-base font-normal transition-colors",
-                                                                item.highlighted
-                                                                    ? "text-blue-600 group-hover:text-blue-700"
-                                                                    : "text-gray-700 group-hover:text-gray-900"
-                                                            )}
-                                                        >
-                                                            {item.label}
-                                                        </p>
-                                                        <ChevronRight
-                                                            className={cn(
-                                                                "w-4 h-4 transition-all duration-200",
-                                                                item.highlighted
-                                                                    ? "text-blue-400 group-hover:text-blue-600 group-hover:translate-x-1"
-                                                                    : "text-gray-300 group-hover:text-blue-600 group-hover:translate-x-1"
-                                                            )}
-                                                        />
-                                                    </Link>
-                                                </motion.div>
-                                            ))}
-                                    </AnimatePresence>
+                                                    {item.label}
+                                                </p>
+                                                <ChevronRight
+                                                    className={cn(
+                                                        "w-4 h-4 transition-all duration-200",
+                                                        item.highlighted
+                                                            ? "text-blue-400 group-hover:text-blue-600 group-hover:translate-x-1"
+                                                            : "text-gray-300 group-hover:text-blue-600 group-hover:translate-x-1"
+                                                    )}
+                                                />
+                                            </Link>
+                                        </motion.div>
+                                    ))}
                                 </div>
                             </div>
                         </motion.div>
@@ -383,14 +364,14 @@ export function Navbar() {
                             </Link>
                             <hr className="border-gray-100 my-2" />
                             <Link
-                                href="/login"
+                                href="https://app-cohortly.vercel.app/login"
                                 className="text-lg font-semibold text-gray-900"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Log in
                             </Link>
                             <Link
-                                href="/signup"
+                                href="https://app-cohortly.vercel.app/signup"
                                 className="bg-black text-white text-center font-bold py-4 rounded-2xl shadow-lg shadow-black/20"
                                 onClick={() => setMobileMenuOpen(false)}
                             >

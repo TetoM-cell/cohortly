@@ -91,7 +91,7 @@ export function Pricing() {
                         </div>
 
                         <Link
-                            href="/signup"
+                            href="https://app-cohortly.vercel.app/signup"
                             className="mt-12 inline-flex w-full justify-center rounded-xl bg-black px-8 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-gray-800 transition-all hover:scale-[1.02] active:scale-95"
                         >
                             Get Started Now

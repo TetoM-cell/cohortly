@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronDown, Send } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { TypewriterText } from "./TypewriterText";
@@ -63,19 +63,6 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function Support() {
-    const [featureRequest, setFeatureRequest] = useState("");
-    const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-    const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setFeatureRequest(e.target.value);
-    };
-
-    useEffect(() => {
-        if (textareaRef.current) {
-            textareaRef.current.style.height = "auto";
-            textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-        }
-    }, [featureRequest]);
 
     return (
         <section className="bg-white min-h-screen">
@@ -105,7 +92,7 @@ export function Support() {
                             />
                         </h1>
                         <AnimatedText
-                            text="Explore our documentation, request missing features, or check out our frequently asked questions to get the support you need."
+                            text="Explore our documentation or check out our frequently asked questions to get the support you need."
                             delay={0.12}
                             className="mt-5 text-sm sm:text-base md:text-lg leading-relaxed text-gray-600"
                         />
@@ -130,33 +117,7 @@ export function Support() {
 
             {/* Main support layout - 50-60% width */}
             <div className="max-w-4xl w-full md:w-[60vw] mx-auto px-4 relative z-10 pt-8 pb-32 space-y-20">
-                {/* Feature request */}
-                <div className="space-y-6">
-                    <div>
-                        <h2 className="text-xl md:text-2xl font-semibold text-gray-900">Request a Feature</h2>
-                        <p className="text-sm text-gray-500 mt-1">Have an idea that could make Cohortly better? Let us know.</p>
-                    </div>
 
-                    <div className="relative bg-white border border-gray-200 rounded-2xl shadow-sm hover:border-gray-300 transition-all focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-500/10 overflow-hidden">
-                        <textarea
-                            ref={textareaRef}
-                            value={featureRequest}
-                            onChange={handleTextareaChange}
-                            placeholder="I wish Cohortly could..."
-                            rows={1}
-                            className="w-full pl-5 pr-5 pt-5 pb-16 bg-transparent outline-none text-gray-800 text-sm placeholder:text-gray-400 resize-none min-h-[120px]"
-                        />
-                        <div className="absolute bottom-4 left-4">
-                            <button
-                                type="button"
-                                className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-xl hover:bg-gray-800 hover:scale-[1.02] active:scale-95 transition-all shadow-md group"
-                            >
-                                <span className="text-[13px] font-bold">Send Feedback</span>
-                                <Send className="w-3.5 h-3.5 text-gray-400 group-hover:text-white transition-colors" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
                 {/* Contact Section */}
                 <div className="space-y-6">
@@ -169,8 +130,8 @@ export function Support() {
                             <h3 className="font-medium text-gray-900">General Inquiries & Support</h3>
                             <p className="text-sm text-gray-500 mt-1">We aim to respond to all inquiries within 48 hours.</p>
                         </div>
-                        <a href="mailto:support@cohortly.com" className="font-medium text-blue-600 hover:text-blue-700 transition-colors text-sm">
-                            support@cohortly.com
+                        <a href="mailto:cohortlyapp@gmail.com" className="font-medium text-blue-600 hover:text-blue-700 transition-colors text-sm">
+                            cohortlyapp@gmail.com
                         </a>
                     </div>
                 </div>

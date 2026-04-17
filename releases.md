@@ -1,5 +1,37 @@
 # Changelog
 
+## Beta 1.3
+
+### New: Application Gating & Support Integration
+
+Take full control over your application window and provide better support to your applicants.
+
+**Application Window Gating:**
+- **Automatic Gating:** Programs now automatically open and close based on `open_date` and `deadline` timestamps.
+- **Smart States:** The application form dynamically renders "Not Yet Open" or "Applications Closed" states when accessed outside the allowed window.
+- **Precise Control:** Added date-time pickers to both the **Cohort Wizard** and **Cohort Settings** for granular scheduling.
+
+**Support & Contact:**
+- **Contact Info:** Define a dedicated support email in the final step of the Cohort Wizard.
+- **Applicant Visibility:** Your support email is now prominently displayed on the application form and success pages, ensuring applicants know where to turn for help.
+
+### Optimizations: Review Portal & Performance
+
+Significant improvements to the reviewer experience and platform stability.
+
+**Reviewer Experience:**
+- **Next.js 15 Readiness:** Core components updated to handle asynchronous routing patterns, ensuring a smooth experience on the latest framework version.
+- **Reliable Commenting:** Fixed synchronization issues with real-time re-fetching and optimistic UI updates for instant feedback.
+- **Activity Tracking:** Comments are now automatically logged in the applicant's activity feed for a complete audit trail.
+- **Peace of Mind:** Added an "Auto-saved" indicator so reviewers know their work is always captured.
+
+**Admin Dashboard:**
+- **Refined Workflow:** Relocated the "Copy Guest Link" action to the Data Table Toolbar for quicker access during reviews.
+- **Better Feedback:** Integrated elegant `sonner` toast notifications for clipboard actions.
+- **Settings Sync:** The Cohort Settings sheet now allows real-time updates to dates and visibility settings without needing to re-open the wizard.
+
+---
+
 ## Beta 1.2
 
 ### New: Reviewer Invitations & Team Inbox
@@ -101,4 +133,3 @@ Each program gets a unique public URL (`/apply/[slug]`). No login required for a
 - **Full Cohort Migration**: Export an entire cohort (settings, form, rubric, and all applicants) as a portable JSON file. Import into a different account or environment.
 - **Bulk Email**: Send acceptance, rejection, or custom emails to groups of applicants directly from the dashboard.
 - **Rich Text Comments**: Markdown support and file attachments in reviewer comment threads.
-- **Your requests**: Submit a feature request from the Support page and we'll review it for the next release.

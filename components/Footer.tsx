@@ -54,7 +54,7 @@ export function Footer() {
                     </div>
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                         <Link
-                            href="/signup"
+                            href="https://app-cohortly.vercel.app/signup"
                             className="bg-black text-white font-bold px-7 py-3 rounded-full shadow-xl shadow-blue-500/10 hover:bg-gray-900 transition-all hover:scale-105 flex items-center gap-2 group text-sm"
                         >
                             Get Started

@@ -108,8 +108,9 @@ This step collects the core metadata for the program:
 - **Program Name** *(required)*: The public-facing name for the cohort (e.g., "Spring 2025 Accelerator Batch").
 - **Description**: A rich description of what the cohort is about, the criteria, and what applicants can expect.
 - **Program Type**: A selection of common cohort types (e.g., Startup Accelerator, VC Fund, Grant Program, Fellowship).
-- **Opening Date**: When the application form will go live to the public.
-- **Deadline**: The final date by which applications will be accepted.
+- **Opening Date & Time**: When the application form will go live to the public. Uses a granular date-time picker for precise scheduling.
+- **Deadline Date & Time**: The final date and time by which applications will be accepted.
+- **Application Gating**: The system automatically manages the form's visibility. Applicants visiting the URL before the opening date or after the deadline will see a custom "Not Yet Open" or "Applications Closed" state.
 - **Cover Image**: An optional hero image shown at the top of the public-facing application form.
 - **Logo**: The program's logo, displayed prominently on the form and in the review dashboard.
 - **Expected Applications**: An optional estimate of how many applications the organizer expects to receive.
@@ -173,8 +174,9 @@ This step configures the AI scoring engine. The rubric defines how Cohortly's AI
 
 #### Step 4: Settings & Launch
 
-The final wizard step manages access controls and publishing.
+The final wizard step manages access controls, support information, and publishing.
 
+- **Support & Contact**: Define a dedicated support email address for the program. This email is displayed on the public application form and submission success pages so applicants can reach out with questions.
 - **Reviewer Management**: Invite team members by email address.
     - **Invitations**: Instead of being added immediately, reviewers receive an invitation in their in-app Inbox. 
     - **Requirement**: Reviewers must have an existing Cohortly account to receive an invitation.
@@ -183,7 +185,7 @@ The final wizard step manages access controls and publishing.
   - **Reviewer**: Can view all applications and leave comments, but cannot modify program settings.
   - **Viewer**: Read-only access. Can see applications and scores.
 - **Save as Draft**: Saves all progress to the database without publishing the form to the public.
-- **Launch Cohort**: Publishes the program and form to the unique public application URL. The form becomes immediately accessible via its slug-based URL.
+- **Launch Cohort**: Publishes the program and form to the unique public application URL. The form becomes immediately accessible via its slug-based URL (subject to the opening date/deadline).
 
 ---
 
@@ -601,8 +603,14 @@ In the Detail Panel, use the **Status** dropdown to change an application's stat
 1. In the Detail Panel, scroll to the **Comments** section.
 2. Type your note in the input field.
 3. Press Enter or click **Send**.
-4. Comments are visible to all reviewers on the same program in real-time.
-5. You can delete your own comments by clicking the trash icon next to them.
+4. **Real-time Sync**: Comments are visible to all reviewers on the same program in real-time. The portal uses optimistic UI updates for instant feedback.
+5. **Activity Log**: Every comment is automatically logged in the applicant's activity feed, creating a permanent audit trail of the review process.
+6. You can delete your own comments by clicking the trash icon next to them.
+
+#### Reviewer Experience Enhancements
+
+- **Auto-save Indicator**: A subtle indicator confirms that your comments and score overrides are being saved in real-time.
+- **Next.js 15 Performance**: The portal is optimized for the latest web standards, ensuring fast navigation and reliable data fetching.
 
 #### Overriding AI Scores
 

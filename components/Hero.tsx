@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 import { Particles } from "./Particles";
@@ -61,10 +62,13 @@ export function Hero() {
                         transition={{ delay: 2.8 }}
                         className="flex flex-col sm:flex-row items-center gap-4 mb-8 md:mb-16 w-full sm:w-auto"
                     >
-                        <button className="h-12 px-7 bg-black hover:bg-gray-900 text-white font-semibold text-sm rounded-full shadow-xl shadow-black/10 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group w-full sm:w-auto">
+                        <Link
+                            href="https://app-cohortly.vercel.app/signup"
+                            className="h-12 px-7 bg-black hover:bg-gray-900 text-white font-semibold text-sm rounded-full shadow-xl shadow-black/10 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group w-full sm:w-auto"
+                        >
                             Start Free Trial
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>
