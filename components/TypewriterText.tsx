@@ -25,7 +25,7 @@ export function TypewriterText({
     const savedChunks = useRef(chunks);
     const [progress, setProgress] = useState({ chunkIdx: 0, charIdx: 0 });
     const containerRef = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(containerRef, { once: true, margin: "-50px" });
+    const isInView = useInView(containerRef, { once: true, margin: "0px" });
 
     useEffect(() => {
         if (!isInView) return;
@@ -68,7 +68,7 @@ export function TypewriterText({
     });
 
     return (
-        <span ref={containerRef} className="relative inline-block">
+        <span ref={containerRef} className="relative inline-block min-w-[1px] min-h-[1em]">
             {chunksToRender.map((chunk, idx) => (
                 <span key={idx} className={chunk.className}>
                     {chunk.text}

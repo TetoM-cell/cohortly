@@ -72,7 +72,7 @@ export function Features() {
                                 <motion.div
                                     initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
+                                    viewport={{ once: true, margin: "-50px 0px" }}
                                     transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
                                     className="flex flex-col"
                                 >
@@ -91,7 +91,7 @@ export function Features() {
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true, margin: "-100px" }}
+                                    viewport={{ once: true, margin: "-50px 0px" }}
                                     transition={{ duration: 0.9, delay: 0.2, type: "spring", damping: 30 }}
                                     className="relative w-full aspect-[4/3] rounded-[24px] md:rounded-[32px] overflow-hidden bg-gray-50/50 flex flex-col p-4 md:p-6 items-center justify-center group border border-gray-100"
                                 >
