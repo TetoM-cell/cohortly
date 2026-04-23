@@ -82,7 +82,7 @@ export function Footer() {
                             The unified platform for managing accelerators, venture funds, and application cohorts.
                         </p>
                         <div className="flex items-center gap-4 mt-8">
-                            <Link href="#" className="text-gray-400 hover:text-gray-900 transition-colors">
+                            <Link href="https://github.com/TetoM-cell/app_cohortly.git" className="text-gray-400 hover:text-gray-900 transition-colors">
                                 <Github className="w-5 h-5" />
                             </Link>
                             <Link href="#" className="text-gray-400 hover:text-gray-900 transition-colors">
