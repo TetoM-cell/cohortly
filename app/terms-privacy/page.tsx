@@ -92,16 +92,16 @@ function TermsContent() {
 
             <SectionHeading>4. Subscription Plans &amp; Billing</SectionHeading>
             <Para>
-                Cohortly offers both free and paid subscription tiers. Paid plans are billed through our
-                payment processor, Lemon Squeezy. By subscribing to a paid plan, you authorise Lemon Squeezy
-                to charge your designated payment method on a recurring basis at the rate applicable to your
-                chosen plan.
+                Cohortly offers a single paid monthly subscription plan, billed through our payment processor,
+                Lemon Squeezy. By subscribing, you authorise Lemon Squeezy to charge your designated
+                payment method on a recurring monthly basis at the rate in effect when your trial or
+                billing cycle begins.
             </Para>
             <SubHeading>4.1 Trials</SubHeading>
             <Para>
-                We may offer free trials of paid features for a limited period. At the end of the trial period,
-                your account will revert to the free tier unless you have provided valid payment details and
-                selected a paid plan.
+                We may offer a free trial for a limited period, including a 14-day trial on the paid plan.
+                At the end of the trial period, your subscription will begin automatically if you have provided
+                valid payment details, unless you cancel before the trial ends.
             </Para>
             <SubHeading>4.2 Upgrades &amp; Downgrades</SubHeading>
             <Para>
