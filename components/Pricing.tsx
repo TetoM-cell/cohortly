@@ -37,15 +37,16 @@ const pricingByPlan: Record<
     { amount: string; suffix: string; detail: string; badge?: string }
 > = {
     monthly: {
-        amount: "$99",
-        suffix: "/month",
-        detail: "Monthly subscription after your 14-day free trial.",
+        amount: "$0",
+        suffix: "",
+        detail: "Limited time offer. Get full access for free while we're in early access.",
+        badge: "Free",
     },
     yearly: {
-        amount: "$75",
-        suffix: "/month",
-        detail: "Billed monthly on a 12-month commitment after your 14-day free trial.",
-        badge: "Save 24%",
+        amount: "$0",
+        suffix: "",
+        detail: "Limited time offer. Get full access for free while we're in early access.",
+        badge: "Free",
     },
 };
 
@@ -60,12 +61,11 @@ export function Pricing() {
             <div className="relative mx-auto max-w-6xl px-4">
                 <div className="mx-auto w-full max-w-4xl text-center">
                     <h1 className="text-3xl font-normal leading-[1.05] tracking-tight text-gray-900 sm:text-4xl md:text-6xl">
-                        One plan. Full platform. 14 days free.
+                        Everything for free. For a limited time.
                     </h1>
                     <p className="mt-5 text-sm leading-relaxed text-gray-600 sm:text-base md:text-lg">
-                        Start a 14-day trial of Cohortly, then continue on a monthly or annual commitment that
-                        includes the full platform: forms, scoring, automation, collaboration, and AI-assisted
-                        review workflows.
+                        We&apos;re opening up the full Cohortly platform to everyone during our early access period. 
+                        Get forms, scoring, automation, collaboration, and AI-assisted reviews at no cost.
                     </p>
                 </div>
 
@@ -134,14 +134,14 @@ export function Pricing() {
                                 href="https://app-cohortly.vercel.app/signup"
                                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-sm font-black uppercase tracking-widest text-black transition-all hover:scale-[1.02] hover:bg-gray-100 active:scale-95"
                             >
-                                Start 14-Day Trial
+                                Start for Free
                                 <ArrowRight className="h-4 w-4" />
                             </Link>
                         </div>
 
                         <p className="mt-6 max-w-lg text-[11px] leading-normal text-white/45">
-                            Billing is handled through Lemon Squeezy. AI-powered reviews remain subject to fair-usage
-                            soft limits to prevent technical abuse.
+                            AI usage is monitored and restricted to avoid abuse. We reserve the right to 
+                            change the pricing model and introduce paid plans at our own discretion in the future.
                         </p>
                     </div>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en" className={`${dmSans.variable} font-sans h-full antialiased light`}>
       <body className="min-h-full flex flex-col bg-white text-gray-900 selection:bg-blue-100 selection:text-blue-900">
         {children}
+        <Analytics />
       </body>
     </html>
   );

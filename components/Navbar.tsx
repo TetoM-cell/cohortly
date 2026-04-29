@@ -108,8 +108,6 @@ export function Navbar() {
         }
     }, [isDesktopNav]);
 
-
-
     type DropdownItem = { label: string; href: string; highlighted?: boolean };
 
     const dropdownItems = (
