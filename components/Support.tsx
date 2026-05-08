@@ -1,66 +1,12 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
 import { cn } from "@/lib/utils";
 import { TypewriterText } from "./TypewriterText";
 import { AnimatedText } from "./AnimatedText";
 import { Particles } from "./Particles";
 import Link from "next/link";
-
-const faqData = [
-    {
-        question: "How do I create a new cohort?",
-        answer: "You can create a new cohort directly from your dashboard. This provides a guided setup flow, allowing you to configure custom deadlines, form structures, and reviewer settings right away."
-    },
-    {
-        question: "Can I customize the application review process?",
-        answer: "Yes, you can define custom rubrics, weighted evaluation criteria, and multiple review stages to match your team's exact workflow."
-    },
-    {
-        question: "How does the AI scoring work?",
-        answer: "Our AI evaluation assistant automatically helps rank applicants against your defined rubric. You can set threshold rules to automatically shortlist top candidates, significantly reducing initial manual screening."
-    },
-    {
-        question: "Is there a limit to how many team members can review applications?",
-        answer: "You can invite multiple staff and reviewers with role-based permissions to ensure fair and consistent review outcomes across your entire organization."
-    },
-    {
-        question: "How do I communicate with applicants?",
-        answer: "Cohortly features a unified inbox and activity feed, allowing you to easily track all communication, send updates, and manage selection decisions in one place."
-    }
-];
-
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-        <div className="border border-gray-200/60 bg-white rounded-2xl overflow-hidden transition-all hover:border-gray-300/80">
-            <button
-                type="button"
-                onClick={() => setIsOpen(!isOpen)}
-                className="w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none"
-            >
-                <span className="font-medium text-gray-900 text-sm md:text-base">{question}</span>
-                <ChevronDown className={cn("w-4 h-4 text-gray-400 transition-transform duration-300", isOpen && "rotate-180")} />
-            </button>
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                        <div className="px-5 pb-5 pt-1 text-sm text-gray-600 leading-relaxed border-t border-gray-100/50 mt-2">
-                            {answer}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    );
-}
+import { FAQ } from "./FAQ";
 
 export function Support() {
 
@@ -127,7 +73,7 @@ export function Support() {
                     </div>
                     <div className="border border-gray-200/60 bg-white rounded-2xl overflow-hidden transition-all hover:border-gray-300/80 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
-                            <h3 className="font-medium text-gray-900">General Inquiries & Support</h3>
+                            <h3 className="font-medium text-gray-900">General Inquiries &amp; Support</h3>
                             <p className="text-sm text-gray-500 mt-1">We aim to respond to all inquiries within 48 hours.</p>
                         </div>
                         <a href="mailto:cohortlyapp@gmail.com" className="font-medium text-blue-600 hover:text-blue-700 transition-colors text-sm">
@@ -136,18 +82,7 @@ export function Support() {
                     </div>
                 </div>
                 {/* FAQs */}
-                <div className="space-y-6">
-                    <div>
-                        <h2 className="text-xl md:text-2xl font-semibold text-gray-900">Frequently Asked Questions</h2>
-                        <p className="text-sm text-gray-500 mt-1">Quick answers to common questions about Cohortly.</p>
-                    </div>
-                    <div className="space-y-3">
-                        {faqData.map((faq, idx) => (
-                            <FaqItem key={idx} question={faq.question} answer={faq.answer} />
-                        ))}
-                    </div>
-                </div>
-
+                <FAQ />
 
             </div>
         </section>

@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Github, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Particles } from "./Particles";
 import { TypewriterText } from "./TypewriterText";
 
@@ -82,9 +82,6 @@ export function Footer() {
                             The unified platform for managing accelerators, venture funds, and application cohorts.
                         </p>
                         <div className="flex items-center gap-4 mt-8">
-                            <Link href="https://github.com/TetoM-cell/app_cohortly.git" className="text-gray-400 hover:text-gray-900 transition-colors">
-                                <Github className="w-5 h-5" />
-                            </Link>
                             <Link href="#" className="text-gray-400 hover:text-gray-900 transition-colors">
                                 <svg
                                     width="20"

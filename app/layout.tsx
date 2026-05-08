@@ -9,8 +9,38 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Cohortly | The OS for Modern Accelerators",
-  description: "Accelerate your application management with AI-driven scoring, unified inboxes, and seamless program builders.",
+  metadataBase: new URL("https://getcohortly.vercel.app"),
+  title: {
+    default: "Cohortly | The OS for Modern Accelerators",
+    template: "%s | Cohortly",
+  },
+  description:
+    "Cohortly helps accelerators review applications 42% faster with AI scoring and unified communication. Free trial available.",
+  openGraph: {
+    type: "website",
+    siteName: "Cohortly",
+    title: "Cohortly | The OS for Modern Accelerators",
+    description:
+      "Cohortly helps accelerators review applications 42% faster with AI scoring and unified communication.",
+    url: "https://getcohortly.vercel.app",
+    // TODO: Replace /og-image.png with your actual OG image in /public
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Cohortly — The OS for Modern Accelerators",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cohortly | The OS for Modern Accelerators",
+    description:
+      "Cohortly helps accelerators review applications 42% faster with AI scoring and unified communication.",
+    // TODO: Replace /og-image.png with your actual OG image in /public
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({

@@ -51,13 +51,15 @@ export function AnimatedText({ text, className = "", delay = 0 }: AnimatedTextPr
             viewport={{ once: true, margin: "-50px" }}
         >
             {words.map((word, index) => (
-                <motion.span
-                    key={index}
-                    variants={child}
-                    style={{ display: "inline-block", marginRight: "0.25em" }}
-                >
-                    {word}
-                </motion.span>
+                <React.Fragment key={index}>
+                    <motion.span
+                        variants={child}
+                        style={{ display: "inline-block" }}
+                    >
+                        {word}
+                    </motion.span>
+                    {index < words.length - 1 ? " " : null}
+                </React.Fragment>
             ))}
         </motion.p>
     );

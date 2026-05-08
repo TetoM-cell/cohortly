@@ -36,7 +36,7 @@ export function Hero() {
                     >
                         <Zap className="w-3 h-3 text-black fill-black" />
                         <span className="text-[10px] font-semibold text-black uppercase tracking-wider">
-                            Beta 1 is now live
+                            Beta 1 is now live — limited seats available
                         </span>
                     </motion.div>
 
@@ -44,22 +44,32 @@ export function Hero() {
                     <motion.h1
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="text-3xl sm:text-4xl md:text-6xl font-normal text-gray-900 tracking-tight leading-[1.08] md:leading-[1.05] mb-10 md:mb-16 max-w-3xl min-h-[80px] md:min-h-[140px] flex items-center justify-center"
+                        className="text-3xl sm:text-4xl md:text-6xl font-normal text-gray-900 tracking-tight leading-[1.08] md:leading-[1.05] mb-3 md:mb-4 max-w-4xl min-h-[80px] md:min-h-[140px] flex items-center justify-center text-balance"
                     >
                         <TypewriterText
                             delay={300}
                             chunks={[
-                                { text: "The Operating System for " },
-                                { text: "Modern Accelerators" }
+                                { text: "Stop Managing Applications. " },
+                                { text: "Start Finding Breakout Founders." }
                             ]}
                         />
                     </motion.h1>
+
+                    {/* Subtitle */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 3.5 }}
+                        className="text-sm sm:text-base md:text-lg text-gray-500 max-w-2xl mb-10 md:mb-16 leading-relaxed"
+                    >
+                        Cohortly gives accelerators AI scoring, unified communication, and program management — in one place.
+                    </motion.p>
 
                     {/* CTAs */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 2.8 }}
+                        transition={{ delay: 3.8 }}
                         className="flex flex-col sm:flex-row items-center gap-4 mb-8 md:mb-16 w-full sm:w-auto"
                     >
                         <Link
