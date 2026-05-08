@@ -59,7 +59,7 @@ export function Hero() {
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 3.5 }}
+                        transition={{ delay: 2.2 }}
                         className="text-sm sm:text-base md:text-lg text-gray-500 max-w-2xl mb-10 md:mb-16 leading-relaxed"
                     >
                         Cohortly gives accelerators AI scoring, unified communication, and program management — in one place.
@@ -69,7 +69,7 @@ export function Hero() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 3.8 }}
+                        transition={{ delay: 2.5 }}
                         className="flex flex-col sm:flex-row items-center gap-4 mb-8 md:mb-16 w-full sm:w-auto"
                     >
                         <Link

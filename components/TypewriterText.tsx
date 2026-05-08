@@ -18,7 +18,7 @@ interface TypewriterTextProps {
 export function TypewriterText({
     chunks,
     delay = 0,
-    speed = 65, // ms per char (slower global default)
+    speed = 35, // ms per char (faster global default)
     cursorColor = "bg-blue-600"
 }: TypewriterTextProps) {
     // Cache the initial chunks to prevent re-renders from restarting or mangling the animation.
